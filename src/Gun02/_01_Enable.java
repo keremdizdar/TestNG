@@ -1,6 +1,6 @@
 package Gun02;
 
-import Utlity.MyFunc;
+import Utlity.Tools;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -52,7 +52,7 @@ public class _01_Enable {
     void bitisIslemleri()
     {
         System.out.println("bitiş işlemleri yapılıyor");
-        MyFunc.Bekle(5);
+        Tools.Bekle(5);
         driver.quit();
     }
 

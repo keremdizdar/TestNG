@@ -1,9 +1,12 @@
 package Utlity;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -27,12 +30,33 @@ public class BaseDriver {
         Duration dr=Duration.ofSeconds(30);
         driver.manage().timeouts().pageLoadTimeout(dr);
         driver.manage().timeouts().implicitlyWait(dr);
+        loginTest();
+    }
+
+    void loginTest()
+    {
+        System.out.println("Login Test");
+
+        driver.get("https://opencart.abstracta.us/index.php?route=account/login");
+
+        WebElement inputEmail=driver.findElement(By.id("input-email"));
+        inputEmail.sendKeys("testng1@gmail.com");
+
+        WebElement password=driver.findElement(By.id("input-password"));
+        password.sendKeys("123qweasd");
+
+        WebElement loginBtn=driver.findElement(By.xpath("//input[@type='submit']"));
+        loginBtn.click();
+
+        Assert.assertTrue(driver.getTitle().equals("My Account"));
+        //Assert.assertEquals(driver.getTitle(),"My Account", "Login olamadı");
+        //Assert.assertTrue(driver.getCurrentUrl().contains("account/account"));
     }
 
     @AfterClass
     public void bitisIslemleri()
     {
-        MyFunc.Bekle(5);
+        Tools.Bekle(5);
         driver.quit();
     }
 }
