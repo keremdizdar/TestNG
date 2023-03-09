@@ -18,7 +18,7 @@ public class _01_Giris {
 //    }
 
     // Eğer herhangi bir sıralama verilmezse metod isimlerinin alfabetik çalışıyor
-    @Test(priority = 1)
+    @Test(priority = 1) // default 0 : index gibi düşünebiliriz.
     public void webSitesiniAc(){
         System.out.println("driver tanımlandı ve webSitesiniAcildi");
     }
