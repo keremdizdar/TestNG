@@ -20,7 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BaseDriverParameter {
-    public static WebDriver driver;
+    public WebDriver driver;  // her classın kendi driverı olsun
     public static WebDriverWait wait;
 
     @BeforeClass
