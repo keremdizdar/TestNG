@@ -48,7 +48,6 @@ public class _01_WishList extends BaseDriver {
 
       // wishItemText  i  wishTableNames  ın gettext lerinde varmı diye kontrol edeceğim.
       Tools.listContainsString(wishTableNames, wishItemText);
-
    }
 
 
